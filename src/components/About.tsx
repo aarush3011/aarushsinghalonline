@@ -46,6 +46,9 @@ const About = () => {
                   <div className="flex-1">
                     <h4 className="font-semibold text-primary mb-2">Education</h4>
                     <h5 className="font-medium text-foreground">BCA in Computer Science</h5>
+                    <p className="text-muted-foreground text-sm">
+                      Guru Govind Singh Indraprastha University
+                    </p>
                     <p className="text-muted-foreground text-sm mt-1">
                       Aug 2024 – Aug 2028 • Current Grade: 78%
                     </p>
