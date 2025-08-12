@@ -17,7 +17,7 @@ const Portfolio = () => {
         "Tournament Management"
       ],
       status: "Completed",
-      github: "https://github.com/yourusername/fantasy-cricket-game", // Replace with your actual GitHub repo URL
+      github: "https://github.com/aarush3011/Fantasy-Cricket",
       demo: "#"
     }
   ];
