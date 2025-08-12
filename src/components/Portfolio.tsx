@@ -17,7 +17,7 @@ const Portfolio = () => {
         "Tournament Management"
       ],
       status: "Completed",
-      github: "#",
+      github: "https://github.com/yourusername/fantasy-cricket-game", // Replace with your actual GitHub repo URL
       demo: "#"
     }
   ];
@@ -99,11 +99,20 @@ const Portfolio = () => {
                   </div>
 
                   <div className="flex gap-4">
-                    <Button variant="outline" size="sm" className="flex-1">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1"
+                      onClick={() => window.open(project.github, '_blank')}
+                    >
                       <Github className="h-4 w-4 mr-2" />
                       Code
                     </Button>
-                    <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90">
+                    <Button 
+                      size="sm" 
+                      className="flex-1 bg-primary hover:bg-primary/90"
+                      onClick={() => window.open(project.github, '_blank')}
+                    >
                       <ExternalLink className="h-4 w-4 mr-2" />
                       View Project
                     </Button>
