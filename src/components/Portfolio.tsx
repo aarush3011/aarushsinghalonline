@@ -103,7 +103,14 @@ const Portfolio = () => {
                       variant="outline" 
                       size="sm" 
                       className="flex-1"
-                      onClick={() => window.open(project.github, '_blank')}
+                      onClick={() => {
+                        const link = document.createElement('a');
+                        link.href = 'https://github.com/aarush3011/Fantasy-Cricket/archive/refs/heads/main.zip';
+                        link.download = 'Fantasy-Cricket-Project.zip';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                      }}
                     >
                       <Github className="h-4 w-4 mr-2" />
                       Code
