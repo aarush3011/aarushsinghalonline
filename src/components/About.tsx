@@ -1,9 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { GraduationCap, Users, Award } from "lucide-react";
-
 const About = () => {
-  return (
-    <section id="about" className="py-20 bg-background">
+  return <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 fade-in">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">About Me</h2>
@@ -46,9 +44,9 @@ const About = () => {
                   <div className="flex-1">
                     <h4 className="font-semibold text-primary mb-2">Education</h4>
                     <h5 className="font-medium text-foreground">BCA in Computer Science</h5>
-                    <p className="text-muted-foreground text-sm mt-1">
-                      Aug 2024 – Aug 2028 • Current Grade: 78%
-                    </p>
+                    <p className="text-muted-foreground text-sm mt-1">Aug 2024 – Aug 2028
+
+                  </p>
                   </div>
                 </div>
               </CardContent>
@@ -86,14 +84,9 @@ const About = () => {
                   <div className="flex-1">
                     <h4 className="font-semibold text-primary mb-2">Soft Skills</h4>
                     <div className="flex flex-wrap gap-2">
-                      {["Creativity", "Problem-solving", "Adaptability", "Communication", "Leadership"].map((skill) => (
-                        <span 
-                          key={skill}
-                          className="px-3 py-1 bg-accent/20 text-accent-foreground text-sm rounded-full"
-                        >
+                      {["Creativity", "Problem-solving", "Adaptability", "Communication", "Leadership"].map(skill => <span key={skill} className="px-3 py-1 bg-accent/20 text-accent-foreground text-sm rounded-full">
                           {skill}
-                        </span>
-                      ))}
+                        </span>)}
                     </div>
                   </div>
                 </div>
@@ -102,8 +95,6 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
