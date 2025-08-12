@@ -16,10 +16,10 @@ const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  // EmailJS configuration - You need to replace these with your actual EmailJS credentials
-  const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID"; // Replace with your service ID
-  const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID"; // Replace with your template ID  
-  const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY"; // Replace with your public key
+  // EmailJS configuration
+  const EMAILJS_SERVICE_ID = "service_1yfeo64";
+  const EMAILJS_TEMPLATE_ID = "template_r3xecih";  
+  const EMAILJS_PUBLIC_KEY = "LVhO159kM7ETJOTK8";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
