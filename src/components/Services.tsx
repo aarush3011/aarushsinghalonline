@@ -30,11 +30,8 @@ const Services = () => {
     }
   ];
 
-  const scrollToContact = () => {
-    const element = document.querySelector("#contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleContactClick = () => {
+    window.location.href = "/contact";
   };
 
   return (
@@ -77,8 +74,8 @@ const Services = () => {
                   </div>
 
                   <Button 
-                    onClick={scrollToContact}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground group"
+                    className="w-full"
+                    onClick={handleContactClick}
                   >
                     Get Started
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -99,9 +96,8 @@ const Services = () => {
                 that combine technical excellence and creative design.
               </p>
               <Button 
-                onClick={scrollToContact}
                 size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90 px-8"
+                onClick={handleContactClick}
               >
                 Contact Me Today
               </Button>

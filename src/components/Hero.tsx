@@ -3,11 +3,8 @@ import { ArrowRight, Download } from "lucide-react";
 import profileImage from "@/assets/aarush-new-profile.jpg";
 
 const Hero = () => {
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleNavigation = (path: string) => {
+    window.location.href = path;
   };
 
   return (
@@ -35,20 +32,18 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
-                onClick={() => scrollToSection("#portfolio")}
-                className="bg-accent text-accent-foreground hover:bg-accent/90 px-6 py-3 text-lg font-medium group"
+                size="lg" 
+                className="font-semibold"
+                onClick={() => handleNavigation("/portfolio")}
               >
                 View My Work
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              
               <Button 
-                onClick={() => scrollToSection("#contact")}
+                size="lg" 
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-primary px-6 py-3 text-lg font-medium"
+                onClick={() => handleNavigation("/contact")}
               >
                 Contact Me
-                <Download className="ml-2 h-5 w-5" />
               </Button>
             </div>
 
