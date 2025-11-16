@@ -37,8 +37,11 @@ const Auth = () => {
     setLoading(true);
 
     try {
+      // Convert userid to email format for Supabase
+      const demoEmail = `${email}@demo.local`;
+      
       const { error } = await supabase.auth.signUp({
-        email,
+        email: demoEmail,
         password,
         options: {
           emailRedirectTo: `${window.location.origin}/home`
@@ -67,8 +70,11 @@ const Auth = () => {
     setLoading(true);
 
     try {
+      // Convert userid to email format for Supabase
+      const demoEmail = `${email}@demo.local`;
+      
       const { error } = await supabase.auth.signInWithPassword({
-        email,
+        email: demoEmail,
         password,
       });
 
@@ -106,11 +112,11 @@ const Auth = () => {
             <TabsContent value="signin">
               <form onSubmit={handleSignIn} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email-signin">Email</Label>
+                  <Label htmlFor="email-signin">User ID</Label>
                   <Input
                     id="email-signin"
-                    type="email"
-                    placeholder="you@example.com"
+                    type="text"
+                    placeholder="00335102024"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -121,7 +127,7 @@ const Auth = () => {
                   <Input
                     id="password-signin"
                     type="password"
-                    placeholder="••••••••"
+                    placeholder="00335102024"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
@@ -136,11 +142,11 @@ const Auth = () => {
             <TabsContent value="signup">
               <form onSubmit={handleSignUp} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email-signup">Email</Label>
+                  <Label htmlFor="email-signup">User ID</Label>
                   <Input
                     id="email-signup"
-                    type="email"
-                    placeholder="you@example.com"
+                    type="text"
+                    placeholder="00335102024"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -151,7 +157,7 @@ const Auth = () => {
                   <Input
                     id="password-signup"
                     type="password"
-                    placeholder="••••••••"
+                    placeholder="00335102024"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
