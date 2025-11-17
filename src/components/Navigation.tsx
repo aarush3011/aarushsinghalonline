@@ -1,14 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { Menu, X, LogOut } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const { toast } = useToast();
 
   const navItems = [
     { name: "Home", href: "/home" },
@@ -23,23 +20,6 @@ const Navigation = () => {
   const handleNavigation = (href: string) => {
     navigate(href);
     setIsMenuOpen(false);
-  };
-
-  const handleLogout = async () => {
-    try {
-      await supabase.auth.signOut();
-      toast({
-        title: "Signed out",
-        description: "You have been signed out successfully.",
-      });
-      navigate("/");
-    } catch (error) {
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: "Failed to sign out",
-      });
-    }
   };
 
   return (
@@ -63,15 +43,6 @@ const Navigation = () => {
                   {item.name}
                 </button>
               ))}
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={handleLogout}
-                className="ml-4"
-              >
-                <LogOut className="h-4 w-4 mr-2" />
-                Logout
-              </Button>
             </div>
           </div>
 
@@ -104,15 +75,6 @@ const Navigation = () => {
                   {item.name}
                 </button>
               ))}
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={handleLogout}
-                className="w-full justify-start"
-              >
-                <LogOut className="h-4 w-4 mr-2" />
-                Logout
-              </Button>
             </div>
           </div>
         )}
