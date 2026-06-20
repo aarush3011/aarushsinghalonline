@@ -1,0 +1,13 @@
+# Aarush Singhal Portfolio
+
+> Portfolio of Aarush Singhal — a BCA student and front-end developer, social media manager, and creative photographer.
+
+## Pages
+
+- [Home](/): Overview of Aarush Singhal's work and skills.
+- [About](/about): Background, education, and journey.
+- [Skills](/skills): Technical and creative skills.
+- [Services](/services): Front-end development, social media management, and photography services.
+- [Portfolio](/portfolio): Selected projects and creative work.
+- [Experience](/experience): Professional experience and milestones.
+- [Contact](/contact): Get in touch for collaborations.
