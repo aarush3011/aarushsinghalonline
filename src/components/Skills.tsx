@@ -50,7 +50,7 @@ const Skills = () => {
     <section id="skills" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Skills & Expertise</h2>
+          <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">Skills & Expertise</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A comprehensive overview of my technical abilities and creative services
           </p>
