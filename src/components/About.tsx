@@ -4,7 +4,7 @@ const About = () => {
   return <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">About Me</h2>
+          <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">About Aarush Singhal</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Get to know more about my journey, education, and passion for technology and creativity
           </p>

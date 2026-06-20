@@ -18,11 +18,11 @@ const Hero = () => {
             <div className="space-y-2">
               <p className="text-accent text-lg font-medium">Hello, I'm</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Aarush Singhal
+                Aarush Singhal — Software Engineer & Photographer
               </h1>
-              <h2 className="text-xl md:text-2xl text-secondary font-medium">
+              <p className="text-xl md:text-2xl text-secondary font-medium">
                 Aspiring Software Engineer & Creative Photographer
-              </h2>
+              </p>
             </div>
             
             <p className="text-lg text-white/90 max-w-lg">
