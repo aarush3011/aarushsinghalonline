@@ -1,44 +1,73 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
+const navItems = [
+  { name: "Home", id: "home" },
+  { name: "About", id: "about" },
+  { name: "Skills", id: "skills" },
+  { name: "Services", id: "services" },
+  { name: "Projects", id: "projects" },
+  { name: "Experience", id: "experience" },
+  { name: "Contact", id: "contact" },
+];
+
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate();
+  const [active, setActive] = useState("home");
 
-  const navItems = [
-    { name: "Home", href: "/home" },
-    { name: "About", href: "/about" },
-    { name: "Skills", href: "/skills" },
-    { name: "Services", href: "/services" },
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Experience", href: "/experience" },
-    { name: "Contact", href: "/contact" },
-  ];
-
-  const handleNavigation = (href: string) => {
-    navigate(href);
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const top = element.getBoundingClientRect().top + window.scrollY - 64;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
     setIsMenuOpen(false);
   };
+
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash) {
+      setTimeout(() => scrollToSection(hash), 100);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY + 100;
+      let current = "home";
+      navItems.forEach((item) => {
+        const el = document.getElementById(item.id);
+        if (el && el.offsetTop <= offset) current = item.id;
+      });
+      setActive(current);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <div className="flex-shrink-0">
-            <h2 className="text-xl font-bold text-primary">Aarush Singhal</h2>
+            <button onClick={() => scrollToSection("home")} className="text-xl font-bold text-primary">
+              Aarush Singhal
+            </button>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-baseline space-x-2">
               {navItems.map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => handleNavigation(item.href)}
-                  className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-accent/50"
+                  onClick={() => scrollToSection(item.id)}
+                  aria-current={active === item.id ? "true" : undefined}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-accent/50 ${
+                    active === item.id ? "text-primary bg-accent/40" : "text-foreground hover:text-primary"
+                  }`}
                 >
                   {item.name}
                 </button>
@@ -55,11 +84,7 @@ const Navigation = () => {
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMenuOpen}
             >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
@@ -71,8 +96,10 @@ const Navigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => handleNavigation(item.href)}
-                  className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-200 hover:bg-accent/50"
+                  onClick={() => scrollToSection(item.id)}
+                  className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-200 hover:bg-accent/50 ${
+                    active === item.id ? "text-primary bg-accent/40" : "text-foreground hover:text-primary"
+                  }`}
                 >
                   {item.name}
                 </button>
