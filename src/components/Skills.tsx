@@ -1,96 +1,88 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { Code, Database, Globe, Camera, Palette, Brain } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Code, Database, Globe, Camera, Wrench, GraduationCap, Terminal, Palette } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 const Skills = () => {
-  const technicalSkills = [
-    { name: "HTML/CSS", level: 90, icon: Code },
-    { name: "JavaScript", level: 85, icon: Code },
-    { name: "Python", level: 80, icon: Code },
-    { name: "C Programming", level: 75, icon: Code },
-    { name: "PL/SQL", level: 70, icon: Database },
-    { name: "DBMS", level: 75, icon: Database },
+  const categories = [
+    {
+      title: "Frontend",
+      icon: Globe,
+      skills: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "Bootstrap", "React (learning)"],
+    },
+    {
+      title: "Programming",
+      icon: Code,
+      skills: ["Python", "C", "Java Basics", "PL/SQL", "DBMS", "OOP"],
+    },
+    {
+      title: "Tools & Platforms",
+      icon: Wrench,
+      skills: ["Git & GitHub", "VS Code", "Canva", "Figma Basics", "Lightroom", "Meta Suite"],
+    },
+    {
+      title: "Currently Learning",
+      icon: GraduationCap,
+      skills: ["React", "Tailwind CSS", "DevOps Basics", "Cloud Fundamentals", "Data Structures"],
+    },
   ];
 
-  const serviceSkills = [
-    { name: "Front-End Development", level: 88, icon: Globe },
-    { name: "Social Media Management", level: 92, icon: Palette },
-    { name: "Photography", level: 85, icon: Camera },
-    { name: "Creative Strategy", level: 80, icon: Brain },
+  const highlights = [
+    { label: "Languages", value: "6+", icon: Terminal },
+    { label: "Projects", value: "10+", icon: Globe },
+    { label: "Photos Taken", value: "500+", icon: Camera },
+    { label: "Databases", value: "SQL", icon: Database },
   ];
-
-  const SkillCard = ({ skills, title, bgClass }: { skills: any[], title: string, bgClass: string }) => (
-    <Card className={`hover-lift ${bgClass} border-0 shadow-lg`}>
-      <CardContent className="p-6">
-        <h3 className="text-xl font-semibold text-primary mb-6 text-center">{title}</h3>
-        <div className="space-y-6">
-          {skills.map((skill) => {
-            const IconComponent = skill.icon;
-            return (
-              <div key={skill.name} className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="bg-primary/10 p-2 rounded-lg">
-                      <IconComponent className="h-4 w-4 text-primary" />
-                    </div>
-                    <span className="font-medium text-foreground">{skill.name}</span>
-                  </div>
-                  <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                </div>
-                <Progress value={skill.level} className="h-2" />
-              </div>
-            );
-          })}
-        </div>
-      </CardContent>
-    </Card>
-  );
 
   return (
     <section id="skills" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 fade-in">
-          <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">Skills & Expertise</h1>
+        <Reveal className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Skills & Expertise</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive overview of my technical abilities and creative services
+            The tools and technologies I use to build, design and grow
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="fade-in">
-            <SkillCard 
-              skills={technicalSkills} 
-              title="Technical Skills" 
-              bgClass="card-gradient"
-            />
-          </div>
-          
-          <div className="fade-in">
-            <SkillCard 
-              skills={serviceSkills} 
-              title="Services & Creative Skills" 
-              bgClass="card-gradient"
-            />
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {categories.map((category, index) => {
+            const IconComponent = category.icon;
+            return (
+              <Reveal key={category.title} delay={index * 100}>
+                <Card className="h-full hover-lift card-gradient border-0 shadow-lg group">
+                  <CardContent className="p-6">
+                    <div className="bg-primary/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                      <IconComponent className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-primary mb-4">{category.title}</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill) => (
+                        <Badge key={skill} variant="outline" className="text-xs bg-white/50">
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </Reveal>
+            );
+          })}
         </div>
 
         {/* Skill Highlights */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 fade-in">
-          {[
-            { label: "Languages", value: "6+", icon: Code },
-            { label: "Projects", value: "10+", icon: Globe },
-            { label: "Photos Taken", value: "500+", icon: Camera },
-            { label: "Happy Clients", value: "20+", icon: Palette },
-          ].map((stat) => {
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+          {highlights.map((stat, index) => {
             const IconComponent = stat.icon;
             return (
-              <Card key={stat.label} className="text-center p-6 hover-lift card-gradient border-0 shadow-lg">
-                <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <IconComponent className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-2xl font-bold text-primary">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </Card>
+              <Reveal key={stat.label} delay={index * 80}>
+                <Card className="text-center p-6 hover-lift card-gradient border-0 shadow-lg">
+                  <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <IconComponent className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="text-2xl font-bold text-primary">{stat.value}</div>
+                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                </Card>
+              </Reveal>
             );
           })}
         </div>
