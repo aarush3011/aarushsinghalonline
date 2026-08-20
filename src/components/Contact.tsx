@@ -87,6 +87,18 @@ const Contact = () => {
       href: "https://instagram.com/crushedaayu"
     },
     {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "aarush-singhal",
+      href: "https://www.linkedin.com/in/aarush-singhal"
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "aarush3011",
+      href: "https://github.com/aarush3011"
+    },
+    {
       icon: MapPin,
       label: "Location",
       value: "Delhi, India",
