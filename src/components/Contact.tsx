@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail, Instagram, MapPin, Send } from "lucide-react";
+import { Phone, Mail, Instagram, MapPin, Send, Linkedin, Github } from "lucide-react";
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
@@ -85,6 +85,18 @@ const Contact = () => {
       label: "Instagram",
       value: "@crushedaayu",
       href: "https://instagram.com/crushedaayu"
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "aarush-singhal",
+      href: "https://www.linkedin.com/in/aarush-singhal"
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "aarush3011",
+      href: "https://github.com/aarush3011"
     },
     {
       icon: MapPin,
